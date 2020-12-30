@@ -5,6 +5,9 @@
 </template>
 <script>
 export default {
-    props: ["name"]
+    props: {
+        'name': name,
+        'resetName': Function,
+    }
 }
 </script>

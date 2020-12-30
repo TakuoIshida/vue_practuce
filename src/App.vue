@@ -10,15 +10,17 @@
     <input type="text" v-model="msg">
     <button @click="clear()">clear</button>
     <p>{{counter}}</p>
-    <child-component :name="name"></child-component>
+    <child-component :name="name" :resetName="resetName()"></child-component>
   </div>
 </template>
 
 <script>
+// import axios from "axios"
 import myheader from './components/myheader'
 import ChildComponent from './components/ChildComponent'
 
 export default {
+  
   components: {
     // どちらも同じ。'myheader'はテンプレート名を上書きできる
     myheader,
@@ -36,6 +38,9 @@ export default {
   methods: {
     clear() {
       this.msg = ""
+    },
+    resetName() {
+      this.name = "reseted"
     }
   },
   // 初期読み込み時にAPIから取得する
