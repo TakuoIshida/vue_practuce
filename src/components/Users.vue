@@ -8,6 +8,8 @@
     <router-link :to="'/users/' + (Number(id) + 1) + '/profile'">次のユーザーへ</router-link>
     <br>
     <router-link :to="{name: 'users-id-profile', params: { id: Number(id) + 1}}">同じ挙動で次のユーザーへ</router-link>
+    <!-- ↓クエリを入れる場合 -->
+    <!-- <router-link :to="{name: 'users-id-profile', params: { id: Number(id) + 1}, query: { lang: 'ja', page: 2}}">同じ挙動で次のユーザーへ</router-link> -->
     <router-view></router-view>
     </div>
 </template>

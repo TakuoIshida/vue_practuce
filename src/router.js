@@ -25,6 +25,11 @@ export default new Router ({
                 {path: "profile", component: UsersProfile, name: 'users-id-profile'},
             ]
         },
+        {
+            // エラーが出た、間違えたpathを入れた時のリダイレクト先
+            path: '*',
+            redirect: '/'
+        },
     ]
 })
 
