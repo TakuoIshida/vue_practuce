@@ -11,6 +11,11 @@
     <button @click="clear()">clear</button>
     <p>{{counter}}</p>
     <child-component :name="name" :resetName="resetName()"></child-component>
+    <nav>
+     <router-link to="/">Home</router-link>
+     <router-link to="users">Users</router-link>
+     <router-view></router-view>
+     </nav>
   </div>
 </template>
 
