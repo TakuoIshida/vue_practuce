@@ -4,6 +4,9 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    counter: 0
+    count: 2
+  },
+  getters:{
+    doubleCount: state => state.count * 2,
   }
 })
