@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Home</h1>
+        <h1>静的なルーティング：Home</h1>
     <button @click="toUsers">Userへ</button>
     </div>
 </template>
