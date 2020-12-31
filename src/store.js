@@ -8,5 +8,13 @@ export const store = new Vuex.Store({
   },
   getters:{
     doubleCount: state => state.count * 2,
-  }
+  },
+  mutations: {
+    muIncrement(state, number) {
+      state.count += number
+    },
+    muDecrement(state, number) {
+      state.count -= number
+    },
+  },
 })

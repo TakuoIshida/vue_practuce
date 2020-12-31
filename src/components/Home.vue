@@ -7,10 +7,14 @@
     <p>storeのcountの二倍を表示する: {{ double }}</p>
     <button @click="increment">COUNT_UP</button>
     <button @click="decrement">COUNT_DOWN</button>
+    <button @click="muIncrement">MUTATE_COUNT_UP</button>
+    <button @click="muDecrement">MUTATE_COUNT_DOWN</button>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     methods: {
         toUsers() {
@@ -22,17 +26,27 @@ export default {
                 params: { id: 1 }
             })
         },
+        // 値の変更はできるが、状態管理方法としては悪手。やらない。
         increment() {
             this.$store.state.count++
         },
         decrement() {
             this.$store.state.count--
         },
+        muIncrement() {
+            this.$store.commit("muIncrement", 1)
+        },
+        muDecrement() {
+            this.$store.commit("muDecrement", 1)
+        },
     },
     computed: {
+        // スプレッド演算子でmapGettersを追加する
+        ...mapGetters(["doubleCount"]),
         count() {
             return this.$store.state.count
         },
+        // 値の変更はできるが、状態管理方法としては悪手。やらない。
         double() {
             return this.$store.getters.doubleCount
         },
