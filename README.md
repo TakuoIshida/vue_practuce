@@ -1,10 +1,10 @@
 # 概要
 vue.jsの練習用レポジトリです。
 
-#技術的トピック
-・vue.jsの基礎的な使い方
-・vuexによる状態管理
-・Typescript（予定）
+#技術的トピック 
+・vue.jsの基礎的な使い方 
+・vuexによる状態管理 
+・Typescript（予定） 
 ・AWS（Cloud Front, S3, CodepipeLine, CodeBuild, CoeDeploy)
 
 #デプロイ
