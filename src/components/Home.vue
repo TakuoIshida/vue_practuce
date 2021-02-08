@@ -11,12 +11,17 @@
     <button @click="muDecrement">MUTATE_COUNT_DOWN</button>
     </div>
 </template>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
 import { mapGetters } from 'vuex'
-import axios from 'axios'
+// import axios from 'axios'
+import * as testJson from '@/assets/test.json'
 
 export default {
+    data() {
+        return {
+            info: testJson
+        }
+    },
     methods: {
         toUsers() {
             // ただrouting する場合
@@ -41,12 +46,22 @@ export default {
             this.$store.commit("muDecrement", 1)
         },
         async req(){
-            return new Promise((resolve, reject) => { 
+            return new Promise((resolve) => { 
                 const json = require("@/assets/test.json")
                 resolve(json)
             }).then(res => {
                 console.log(res)
             });
+        },
+        async load(){
+            const ret = await require('@/assets//test.json')
+            console.log("ret")
+            console.log(ret)
+        },
+        async fetchFile() {
+            const res = await fetch("./test.json")
+            let json = await res
+            console.log(json)
         }
     },
     computed: {
@@ -63,6 +78,9 @@ export default {
     },
     mounted() {
         this.req()
+        this.load()
+        this.fetchFile()
+        console.log(this.info.default)
     },
 }
 </script>
