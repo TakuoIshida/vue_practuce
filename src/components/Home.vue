@@ -11,9 +11,10 @@
     <button @click="muDecrement">MUTATE_COUNT_DOWN</button>
     </div>
 </template>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
 import { mapGetters } from 'vuex'
+import axios from 'axios'
 
 export default {
     methods: {
@@ -39,6 +40,14 @@ export default {
         muDecrement() {
             this.$store.commit("muDecrement", 1)
         },
+        async req(){
+            return new Promise((resolve, reject) => { 
+                const json = require("@/assets/test.json")
+                resolve(json)
+            }).then(res => {
+                console.log(res)
+            });
+        }
     },
     computed: {
         // スプレッド演算子でmapGettersを追加する
@@ -50,6 +59,10 @@ export default {
         double() {
             return this.$store.getters.doubleCount
         },
-    }
+        
+    },
+    mounted() {
+        this.req()
+    },
 }
 </script>
