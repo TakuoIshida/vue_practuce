@@ -54,14 +54,16 @@ export default {
             });
         },
         async load(){
-            const ret = await require('@/assets//test.json')
+            const ret = await require('@/assets/test.json')
             console.log("ret")
             console.log(ret)
         },
         async fetchFile() {
-            const res = await fetch("./test.json")
-            let json = await res
-            console.log(json)
+            const jpg = await require('@/assets/test.jpg')
+            console.log(jpg)
+            console.log(process.env.VUE_APP_BASE_URL)
+            const res = await fetch(process.env.VUE_APP_BASE_URL + jpg)
+            console.log(res)
         }
     },
     computed: {
